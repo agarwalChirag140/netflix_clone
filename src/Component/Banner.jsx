@@ -20,18 +20,18 @@ export const Banner = () => {
     return (
         <div className="bg-cover bg-center text-white object-contain" style={{backgroundImage: `url("https://image.tmdb.org/t/p/original${backdrop_path}")`}}>
             {/* Description div */}
-            <div className="pt-40 pl-6">
+            <div className="pt-52 pl-6">
                 {/* Title div */}
                 <div>
-                    <h1 className="text-5xl font-extrabold">{name || title || original_name}</h1>
+                    <h1 className="text-6xl font-extrabold">{name || title || original_name}</h1>
                 </div>
                 {/* Button Div */}
                 <div>
-                    <button className="w-32 p-1.5 mt-3 bg-gray-900 font-bold hover:text-black hover:bg-white transition duration-150 ease-in">Play</button>
-                    <button className="w-32 ml-4 p-1.5 bg-gray-900 font-bold hover:text-black hover:bg-white transition duration-150 ease-in">My List</button>
+                    <button className="w-36 p-2 mt-3 bg-gray-900 font-bold hover:text-black hover:bg-white transition duration-150 ease-in">Play</button>
+                    <button className="w-36 ml-4 p-2 bg-gray-900 font-bold hover:text-black hover:bg-white transition duration-150 ease-in">My List</button>
                 </div>
                 {/* Detail */}
-                <div className="mt-3 text-sm pr-5 md:w-1/4 font-bold">
+                <div className="mt-3 pr-5 md:w-1/4 font-bold">
                     {truncate(overview, 150)}
                 </div>
             </div>

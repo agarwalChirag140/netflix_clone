@@ -1,4 +1,4 @@
-import { GET_MOVIES_FAILURE, GET_MOVIES_REQUEST, GET_MOVIES_SUCCESS } from "../Movies/actionType"
+import { GET_MOVIES_FAILURE, GET_MOVIES_REQUEST, GET_MOVIES_SUCCESS } from "./actionType"
 
 const initState = {
     moviesList: {},
@@ -6,11 +6,7 @@ const initState = {
     isError: false
 }
 
-
 export const moviesReducer = (state = initState, {type, payload}) => {
-    // console.log(type, payload)
-    // console.log("Payload title ", payload.title)
-    console.log("Payload ", payload)
     switch(type){
         case GET_MOVIES_REQUEST:
             return {
@@ -20,10 +16,8 @@ export const moviesReducer = (state = initState, {type, payload}) => {
             }
         case GET_MOVIES_SUCCESS:
             return {
-                // ...state,
-                // [payload.title] : payload.moviesList,
-                // ...payload.moviesList,
-                moviesList: payload.moviesList ? {...payload.moviesList} : {},
+                ...state,
+                moviesList: {...state.moviesList, ...payload},
                 isLoading: false,
                 isError: false
             }

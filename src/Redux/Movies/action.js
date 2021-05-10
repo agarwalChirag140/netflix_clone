@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_MOVIES_FAILURE, GET_MOVIES_REQUEST, GET_MOVIES_SUCCESS } from "../Movies/actionType"
+import { GET_MOVIES_FAILURE, GET_MOVIES_REQUEST, GET_MOVIES_SUCCESS } from "./actionType"
 
 export const getMoviesRequest = () => {
     return {
@@ -8,10 +8,9 @@ export const getMoviesRequest = () => {
 }
 
 export const getMoviesSuccess = (payload, key) => {
-    console.log(key)
     return {
         type: GET_MOVIES_SUCCESS,
-        payload: {movieList:{[key]: payload}}
+        payload: {[key]: payload}
     }
 }
 
@@ -23,7 +22,6 @@ export const getMoviesFailure = (payload) => {
 }
 
 export const getMovies = (payload) => (dispatch) => {
-    // console.log(payload)
     dispatch(getMoviesRequest())
     return axios({
         method: "get",
@@ -36,3 +34,4 @@ export const getMovies = (payload) => (dispatch) => {
         dispatch(getMoviesFailure(err))
     })
 }
+

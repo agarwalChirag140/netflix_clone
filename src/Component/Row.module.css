@@ -1,0 +1,10 @@
+.row_posters {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    height: 250px;
+}
+
+.row_posters::-webkit-scrollbar {
+    display: none;
+}
