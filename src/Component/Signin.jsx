@@ -1,17 +1,18 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { auth } from '../firebase'
-import { registerUser} from "../Redux/Auth/action"
+import { useDispatch} from 'react-redux'
+import { loginUser, registerUser} from "../Redux/Auth/action"
 
 export const Signin = () => {
 
     const [email, setEmail] = React.useState("")
     const [password, setPassword] = React.useState("")
-    
+
     const dispatch = useDispatch()
+    
  
     const signIn = (e) => {
         e.preventDefault()
+        dispatch(loginUser({email, password}))
     }
 
     const register = () => {

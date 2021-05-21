@@ -1,13 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Redirect } from 'react-router'
 import { Banner } from './Banner'
 import { NavBar } from './NavBar'
 import { Row } from './Row'
 
 export const HomeScreen = () => {
-    const [isAuth, setisAuth] = React.useState(true)
 
-    if(!isAuth){
+    const isAuth = useSelector((state) => state.auth.isAuth)
+    // console.log(isAuth)
+    if(!isAuth) {
         return <Redirect to="/starting" />
     }
     

@@ -1,5 +1,5 @@
 import { auth } from "../../firebase"
-import { REGISTER_REQUEST, REGISTER_SUCCESS, REGUSTER_FAILURE } from "../Auth/actionType"
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, REGISTER_REQUEST, REGISTER_SUCCESS, REGUSTER_FAILURE } from "../Auth/actionType"
 
 export const registerRequest = () => {
     return {
@@ -21,17 +21,59 @@ export const registerFailure = (payload) => {
     }
 } 
 
+export const loginRequest = () => {
+    return {
+        type: LOGIN_REQUEST
+    }
+}
+
+export const loginSuccess = (payload) => {
+    return {
+        type: LOGIN_SUCCESS,
+        payload
+    }
+}
+
+export const loginFailure = (payload) => {
+    return {
+        type: LOGIN_FAILURE,
+        payload
+    }
+}
+
+export const logOut = () => {
+    return {
+        type: LOGOUT
+    }
+}
+
 export const registerUser = (payload) => (dispatch) => {
     
-    dispatch(registerSuccess())
+    dispatch(registerRequest())
 
-    auth.signInWithEmailAndPassword(payload.email, payload.password)
-    .then((res) => {
-        console.log(res.user.uid)
+    auth.createUserWithEmailAndPassword(payload.email, payload.password)
+    .then((authUser) => {
+        dispatch(registerSuccess("Register Successful"))
         alert("Register Successful")
     })
     .catch((err) => {
+        dispatch(registerFailure(err.message))
         alert(err.message)
     })
+}
 
+export const loginUser = (payload) => (dispatch) => {
+
+    dispatch(loginRequest())
+
+    auth.signInWithEmailAndPassword(payload.email, payload.password)
+    .then((user) => {
+        console.log(user.user.email)
+        dispatch(loginSuccess(user.user))
+        alert("Login Successful")
+    })
+    .catch((err) => {
+        dispatch(loginFailure(err.message))
+        alert(err.message)
+    })
 }

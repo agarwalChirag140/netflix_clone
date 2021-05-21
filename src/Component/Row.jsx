@@ -5,7 +5,6 @@ import styles from  "./Row.module.css"
 import "./Row.module.css"
 import movieTrailer from "movie-trailer"
 import YouTube from 'react-youtube'
-import Carousel from 'react-elastic-carousel';
 
 export const Row = ({title, fetchUrl, isLargeRow}) => {
 
@@ -23,7 +22,6 @@ export const Row = ({title, fetchUrl, isLargeRow}) => {
     console.log(movies_list)
 
     const handleTrailer = (movie) => {
-        console.log(movie)
         if(trailerUrl){
             setTrailerUrl("")
         }

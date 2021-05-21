@@ -1,17 +1,17 @@
 import React from 'react'
 import styles from "./StartingScreen.Module.css"
 import netflixLogo from "../Images/Netflix-Logo-removebg-preview.png"
-import { Redirect } from 'react-router'
 import { Signin } from './Signin'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
 
 export const StartingScreen = () => {
-
-    // const [signup, setSignup] = React.useState(false)
+    
     const [signin, setSignin] = React.useState(false)
-    const [isAuth, setisAuth] = React.useState(false)
+    const isAuth = useSelector((state) => state.auth.isAuth) 
 
-    if(isAuth){
-        <Redirect to="/" />
+    if(isAuth) {
+        return <Redirect to="/" />
     }
 
     const signIn = () => {
