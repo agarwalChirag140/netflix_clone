@@ -2,7 +2,7 @@
 ### Netflix is a streaming service that offers a wide variety of award-wining TV shows, movies, anime, documentaries, and more on thousands of internet-connnected.
 
 # Demo Link
-### https://netflix-clone-project2.netlify.app/starting
+### [Netflix Clone](https://netflix-clone-project2.netlify.app/starting)
 
 # Demo Video
 ### https://user-images.githubusercontent.com/61875139/119457912-d2b8d680-bd59-11eb-8a35-eaef9cf9ea97.mp4
