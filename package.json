@@ -25,11 +25,14 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "homepage": "http://agarwalChirag140.github.io/netflix_clone",
     "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +55,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.1.2",
     "autoprefixer": "^9.8.6",
+    "gh-pages": "^6.1.1",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2"
   }
